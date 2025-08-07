@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.28...3.30)
 
+set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
+
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/common/bootstrap.cmake" NO_POLICY_SCOPE)
 
 project(${_name} VERSION ${_version})
@@ -34,6 +36,54 @@ if(ENABLE_QT)
   )
 endif()
 
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-main.c)
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/obs-nvenc.c)
 
 set_target_properties_plugin(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME ${_name})
+
+# AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+if(NOT TARGET OBS::opts-parser)
+  add_subdirectory("${CMAKE_SOURCE_DIR}/shared/opts-parser" "${CMAKE_BINARY_DIR}/shared/opts-parser")
+endif()
+
+if(OS_LINUX AND NOT TARGET OBS::glad)
+  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/glad" "${CMAKE_BINARY_DIR}/deps/glad")
+endif()
+
+# Add common module directories to default search path
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/common" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/finders")
+
+find_package(FFnvcodec 11 REQUIRED)
+
+add_subdirectory(src/tester)
+
+target_sources(
+  ${CMAKE_PROJECT_NAME}
+  PRIVATE
+    $<$<PLATFORM_ID:Linux>:src/nvenc-opengl.c>
+    $<$<PLATFORM_ID:Windows>:src/nvenc-d3d11.c>
+    src/cuda-helpers.c
+    src/cuda-helpers.h
+    src/nvenc-compat.c
+    src/nvenc-cuda.c
+    src/nvenc-helpers.c
+    src/nvenc-helpers.h
+    src/nvenc-internal.h
+    src/nvenc-opts-parser.c
+    src/nvenc-properties.c
+    src/nvenc.c
+    src/obs-nvenc.c
+    src/obs-nvenc.h
+)
+
+target_link_libraries(
+  ${CMAKE_PROJECT_NAME}
+  PRIVATE OBS::libobs OBS::opts-parser FFnvcodec::FFnvcodec $<$<PLATFORM_ID:Linux>:OBS::glad>
+)
+
+target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE $<$<BOOL:${ENABLE_NVENC_FFMPEG_IDS}>:REGISTER_FFMPEG_IDS>)
+
+if(OS_WINDOWS)
+  configure_file(cmake/windows/obs-module.rc.in ${CMAKE_PROJECT_NAME}.rc)
+  target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_PROJECT_NAME}.rc)
+endif()
