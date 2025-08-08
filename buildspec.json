@@ -33,13 +33,13 @@
     },
     "platformConfig": {
         "macos": {
-            "bundleId": "com.kepler.nvenc-plugin-for-obs"
+            "bundleId": "com.ranawaysuccessfully.nvenc-kepler-plugin"
         }
     },
     "name": "nvenckepler",
-    "displayName": "NVENC for Kepler",
-    "version": "0.1.0",
-    "author": "Kepler",
-    "website": "https://en.wikipedia.org/wiki/Johannes_Kepler",
-    "email": "kepler@example.com"
+    "displayName": "NVENC Kepler Plugin",
+    "version": "0.2.0",
+    "author": "RanAwaySuccessfully",
+    "website": "https://github.com/RanAwaySuccessfully/obs-nvenckepler",
+    "email": ""
 }

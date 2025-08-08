@@ -40,39 +40,39 @@ static void nv_bitstream_free(struct nvenc_data *enc, struct nv_bitstream *bs)
 static const char *h264_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC H.264";
+	return "NVIDIA NVENC H.264 (Kepler Plugin)";
 }
 
 static const char *h264_nvenc_soft_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC H.264 (Fallback)";
+	return "NVIDIA NVENC H.264 (Kepler Plugin) (Fallback)";
 }
 
 #ifdef ENABLE_HEVC
 static const char *hevc_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC HEVC";
+	return "NVIDIA NVENC HEVC (Kepler Plugin)";
 }
 
 static const char *hevc_nvenc_soft_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC HEVC (Fallback)";
+	return "NVIDIA NVENC HEVC (Kepler Plugin) (Fallback)";
 }
 #endif
 
 static const char *av1_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC AV1";
+	return "NVIDIA NVENC AV1 (Kepler Plugin)";
 }
 
 static const char *av1_nvenc_soft_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC AV1 (Fallback)";
+	return "NVIDIA NVENC AV1 (Kepler Plugin) (Fallback)";
 }
 
 static inline int nv_get_cap(struct nvenc_data *enc, NV_ENC_CAPS cap)

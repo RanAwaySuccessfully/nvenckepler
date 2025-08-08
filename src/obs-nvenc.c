@@ -3,7 +3,7 @@
 #include "obs-nvenc.h"
 
 OBS_DECLARE_MODULE()
-OBS_MODULE_USE_DEFAULT_LOCALE("obs-nvenc", "en-US")
+OBS_MODULE_USE_DEFAULT_LOCALE("nvenckepler", "en-US")
 
 MODULE_EXPORT const char *obs_module_description(void)
 {

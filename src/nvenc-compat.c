@@ -47,21 +47,21 @@ static void *nvenc_reroute(enum codec_type codec, obs_data_t *settings, obs_enco
 static const char *h264_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC H.264";
+	return "NVIDIA NVENC H.264 (Kepler Plugin)";
 }
 
 #ifdef ENABLE_HEVC
 static const char *hevc_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC HEVC";
+	return "NVIDIA NVENC HEVC (Kepler Plugin)";
 }
 #endif
 
 static const char *av1_nvenc_get_name(void *type_data)
 {
 	UNUSED_PARAMETER(type_data);
-	return "NVIDIA NVENC AV1";
+	return "NVIDIA NVENC AV1 (Kepler Plugin)";
 }
 
 static void *h264_nvenc_create(obs_data_t *settings, obs_encoder_t *encoder)

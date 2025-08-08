@@ -285,9 +285,9 @@ static void read_codec_caps(config_t *config, enum codec_type codec, const char 
 static bool nvenc_check(void)
 {
 	#ifdef _WIN32
-	char *test_exe = os_get_executable_path_ptr("obs-nvenckepler-test.exe");
+	char *test_exe = os_get_executable_path_ptr("nvenckepler-test.exe");
 #else
-	char *test_exe = os_get_executable_path_ptr("obs-nvenckepler-test");
+	char *test_exe = os_get_executable_path_ptr("nvenckepler-test");
 #endif
 	os_process_args_t *args;
 	struct dstr caps_str = {0};
