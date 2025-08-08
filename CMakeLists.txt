@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.28...3.30)
 
 set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER, ${_author})
 
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/common/bootstrap.cmake" NO_POLICY_SCOPE)
 
