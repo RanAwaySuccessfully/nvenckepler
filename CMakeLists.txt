@@ -82,8 +82,3 @@ target_link_libraries(
 )
 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE $<$<BOOL:${ENABLE_NVENC_FFMPEG_IDS}>:REGISTER_FFMPEG_IDS>)
-
-if(OS_WINDOWS)
-  configure_file(cmake/windows/obs-module.rc.in ${CMAKE_PROJECT_NAME}.rc)
-  target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_PROJECT_NAME}.rc)
-endif()

@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.28...3.30)
 
-project(${_name}-test VERSION ${_version})
-
 find_package(FFnvcodec 11 REQUIRED)
 
 add_executable(${CMAKE_PROJECT_NAME}-test)
