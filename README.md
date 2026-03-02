@@ -12,7 +12,7 @@ This plugin has been adapted to use the [official plugin template](https://githu
 
 ## How to install
 
-Grab the most recent release from the Releases section and download the one appropriate for your platform.
+Grab the **most recent release from the [Releases section](https://github.com/RanAwaySuccessfully/nvenckepler/releases)** and download the one appropriate for your platform.
 
 ### How to build manually
 
