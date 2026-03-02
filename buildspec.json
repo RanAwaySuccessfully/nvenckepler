@@ -33,7 +33,7 @@
     },
     "platformConfig": {
         "macos": {
-            "bundleId": "com.ranawaysuccessfully.nvenc-kepler-plugin"
+            "bundleId": "xyz.randev.nvenckepler-plugin"
         }
     },
     "name": "nvenckepler",
