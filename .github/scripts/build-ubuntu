@@ -229,7 +229,7 @@ ${_usage_host:-}"
   log_group
 }
 
-git clone -b sdk/11.1 https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+git clone -b sdk/11.1 https://github.com/FFmpeg/nv-codec-headers.git
 cd nv-codec-headers
 make
 sudo make install
