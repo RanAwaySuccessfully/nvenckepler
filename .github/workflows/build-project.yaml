@@ -254,8 +254,8 @@ jobs:
       - name: Upload portable plugin 😵‍💫
         uses: actions/upload-artifact@v4
         with:
-          name: ./portable/nvenckepler/
-          path: ${{ github.workspace }}/release/${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-plugin.*
+          name: ${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-${{ matrix.os }}-x86_64-portable-${{ needs.check-event.outputs.commitHash }}
+          path: ./portable/nvenckepler/
 
       - uses: actions/cache/save@v4
         if: github.event_name != 'pull_request' && steps.ccache-cache.outputs.cache-hit != 'true'
