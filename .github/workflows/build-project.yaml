@@ -72,7 +72,7 @@ jobs:
           fi
 
   macos-build:
-    if: ${{ false }}
+    if: ${{ false }} # Let's ignore macOS for this
     name: Build for macOS 🍏
     runs-on: macos-15
     needs: check-event
@@ -243,6 +243,19 @@ jobs:
         with:
           name: ${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-${{ matrix.os }}-x86_64-${{ needs.check-event.outputs.commitHash }}-dbgsym
           path: ${{ github.workspace }}/release/${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-x86_64*-dbgsym.ddeb
+
+      - name: Copy portable plugin files 😵‍💫
+        run: |
+          dpkg-deb -x nvenckepler-0.2.0-x86_64-linux-gnu.deb ./portable/
+          mkdir -p ./portable/nvenckepler/bin/64bit
+          mv ./portable/usr/lib/x86_64-linux-gnu/obs-plugins/nvenckepler.so ./portable/nvenckepler/bin/64bit/
+          mv ./portable/usr/share/obs/obs-plugins/nvenckepler ./portable/nvenckepler/data
+
+      - name: Upload portable plugin 😵‍💫
+        uses: actions/upload-artifact@v4
+        with:
+          name: ./portable/nvenckepler/
+          path: ${{ github.workspace }}/release/${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-plugin.*
 
       - uses: actions/cache/save@v4
         if: github.event_name != 'pull_request' && steps.ccache-cache.outputs.cache-hit != 'true'

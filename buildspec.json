@@ -10,12 +10,12 @@
             }
         },
         "prebuilt": {
-            "version": "2025-07-11",
-            "baseUrl": "https://github.com/obsproject/obs-deps/releases/download",
+            "version": "v0.2.0",
+            "baseUrl": "https://github.com/RanAwaySuccessfully/nvenckepler/releases/download",
             "label": "Pre-Built obs-deps",
             "hashes": {
                 "macos": "495687e63383d1a287684b6e2e9bfe246bb8f156fe265926afb1a325af1edd2a",
-                "windows-x64": "c8c642c1070dc31ce9a0f1e4cef5bb992f4bff4882255788b5da12129e85caa7"
+                "windows-x64": "1fd150b90c3a5103bdb3096bce2224668a6589264e936cc88b7e218b77e97ddf"
             }
         },
         "qt6": {
@@ -38,7 +38,7 @@
     },
     "name": "nvenckepler",
     "displayName": "NVENC Kepler Plugin",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "RanAwaySuccessfully",
     "website": "https://github.com/RanAwaySuccessfully/obs-nvenckepler",
     "email": "RanAwaySuccessfully@users.noreply.github.com"
