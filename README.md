@@ -14,6 +14,8 @@ This plugin has been adapted to use the [official plugin template](https://githu
 
 Grab the **most recent release from the [Releases section](https://github.com/RanAwaySuccessfully/nvenckepler/releases)** and download the one appropriate for your platform.
 
+**You must have the NVIDIA driver v471 installed. Minor version differences like v470 or v475 should be fine. Major differences like v450 or v515 are unlikely to work.** Grab the most recent driver that your graphics card supports.
+
 ### How to build manually
 
 Make sure you have an appropriate version of `obs-studio` and `libobs` installed.
