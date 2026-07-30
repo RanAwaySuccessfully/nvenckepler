@@ -246,7 +246,7 @@ jobs:
 
       - name: Copy portable plugin files 😵‍💫
         run: |
-          dpkg-deb -x nvenckepler-0.2.0-x86_64-linux-gnu.deb ./portable/
+          dpkg-deb -x ${{ github.workspace }}/release/${{ steps.setup.outputs.pluginName }}-${{ steps.setup.outputs.pluginVersion }}-x86_64*.deb ./portable/
           mkdir -p ./portable/nvenckepler/bin/64bit
           mv ./portable/usr/lib/x86_64-linux-gnu/obs-plugins/nvenckepler.so ./portable/nvenckepler/bin/64bit/
           mv ./portable/usr/share/obs/obs-plugins/nvenckepler ./portable/nvenckepler/data
